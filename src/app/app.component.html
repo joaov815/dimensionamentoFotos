@@ -1,5 +1,8 @@
 <div class=" pt-2">
-  <input type="file" class="custom-file-input" id="validatedCustomFile" accept="image/*" required (change)="onChange($event)" #inputImg hidden>
+  <form [formGroup]="form">
+    <input type="file" class="custom-file-input" id="validatedCustomFile" accept="image/*" required (change)="onChange($event)" #inputImg hidden formControlName="foto">
+  </form>
+
   <div *ngIf="loadingImg" class="center" style="margin: 10px auto; height: 300px; width: 300px; ">
     Carregando ...
   </div>
@@ -19,9 +22,9 @@
     <div class="center" *ngIf="btnsEscolhaRedeSocial">
       <button type="button" class="btn btn-primary mr-1" (click)="escolherTipo('perfil')">Perfil</button>
       <button type="button" class="btn btn-primary mr-1" (click)="escolherTipo('feed')">Feed</button>
-      <button type="button" class="btn btn-primary mr-1" (click)="escolherTipo('stories')">Stories</button>
+      <button type="button" class="btn btn-primary mr-1" *ngIf="storiesBtn" (click)="escolherTipo('stories')">Stories</button>
       <button type="button" class="btn btn-primary mr-1" (click)="escolherTipo('capa')">Capa</button>
-      <button type="button" class="btn btn-primary mr-1" (click)="voltar()">Voltar</button>
+      <button type="button" class="btn btn-primary mr-1" (click)="voltarOpcoes()">Voltar</button>
     </div>
   </div>
 </div>

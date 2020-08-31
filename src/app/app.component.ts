@@ -1,14 +1,14 @@
 import { RESOLUCOES } from './resolucoes-mock';
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RedeSocial } from './resolucao.model';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  @ViewChild('inputImg') fileInput: HTMLElement;
+export class AppComponent implements OnInit{
   inputFile: any;
   srcImg: any;
   imgHeight: number = 300;
@@ -16,8 +16,21 @@ export class AppComponent {
   loadingImg: boolean = false;
   resolucoes: RedeSocial[] = RESOLUCOES;
   btnsEscolhaRedeSocial: boolean = false;
+  form: FormGroup;
+  storiesBtn:boolean = false;
 
-  onChange(event){
+  constructor(private fb: FormBuilder){}
+
+  ngOnInit(){
+    this.form = this.fb.group({foto: null});
+  }
+
+  resetForm(){
+    this.form.reset();
+  }
+
+  onChange(event: any){
+    console.log(event)
     const selectedPhoto = <FileList>event.srcElement.files;
     if(selectedPhoto[0]){
       this.loadingImg = true;
@@ -32,6 +45,7 @@ export class AppComponent {
 
   escolherRedeSocial(redeSocial: string){
     this.btnsEscolhaRedeSocial = true;
+    redeSocial === 'Twitter' ? this.storiesBtn = false : this.storiesBtn = true;
     this.resolucoes = this.resolucoes.filter(r => r.nome === redeSocial);
   }
 
@@ -41,6 +55,11 @@ export class AppComponent {
     this.imgWidth = this.resolucoes[0].resolucao.width;
   }
 
+  voltarOpcoes(){
+    this.resolucoes = RESOLUCOES;
+    this.btnsEscolhaRedeSocial = false;
+  }
+
   voltar(){
     this.btnsEscolhaRedeSocial = false;
     this.srcImg = null;
@@ -48,6 +67,6 @@ export class AppComponent {
     this.resolucoes = RESOLUCOES;
     this.imgHeight = 300;
     this.imgWidth = 300;
-    this.fileInput = null;
+    this.resetForm();
   }
 }

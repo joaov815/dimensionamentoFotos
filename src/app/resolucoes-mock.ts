@@ -49,7 +49,7 @@ export const RESOLUCOES: RedeSocial[] = [
   {
     id: 't3',
     nome: 'Twitter',
-    postagem: 'perfil',
+    postagem: 'feed',
     resolucao: {
       width: 335,
       height: 600
@@ -79,7 +79,7 @@ export const RESOLUCOES: RedeSocial[] = [
     postagem: 'feed',
     resolucao: {
       width: 1200,
-      height: 1200
+      height: 630
     }
   },
   {
