@@ -18,6 +18,8 @@ export class AppComponent implements OnInit{
   btnsEscolhaRedeSocial: boolean = false;
   form: FormGroup;
   storiesBtn:boolean = false;
+  redeSocialSelecionda: string = '';
+
 
   constructor(private fb: FormBuilder){}
 
@@ -45,11 +47,13 @@ export class AppComponent implements OnInit{
 
   escolherRedeSocial(redeSocial: string){
     this.btnsEscolhaRedeSocial = true;
+    this.redeSocialSelecionda = redeSocial;
     redeSocial === 'Twitter' ? this.storiesBtn = false : this.storiesBtn = true;
     this.resolucoes = this.resolucoes.filter(r => r.nome === redeSocial);
   }
 
   escolherTipo(tipo: string){
+    this.resolucoes = RESOLUCOES;
     this.resolucoes = this.resolucoes.filter(r => r.postagem === tipo);
     this.imgHeight = this.resolucoes[0].resolucao.height;
     this.imgWidth = this.resolucoes[0].resolucao.width;

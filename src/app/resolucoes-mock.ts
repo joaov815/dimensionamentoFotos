@@ -6,35 +6,54 @@ export const RESOLUCOES: RedeSocial[] = [
     nome: 'Instagram',
     postagem: 'perfil',
     resolucao: {
-      width: 110,
-      height: 110
+      width: 180,
+      height: 180
     }
   },
   {
     id: 'i2',
     nome: 'Instagram',
-    postagem: 'feed',
+    postagem: 'stories',
     resolucao: {
-      width: 600,
-      height: 750
+      width: 1080,
+      height: 1920
     }
   },
   {
     id: 'i3',
     nome: 'Instagram',
-    postagem: 'stories',
+    postagem: 'feedRetrato',
     resolucao: {
-      width: 600,
-      height: 1067
+      width: 1080,
+      height: 1350
     }
   },
+  {
+    id: 'i4',
+    nome: 'Instagram',
+    postagem: 'feedQuadrado',
+    resolucao: {
+      width: 1080,
+      height: 1080
+    }
+  },
+  {
+    id: 'i5',
+    nome: 'Instagram',
+    postagem: 'feedPaisagem',
+    resolucao: {
+      width: 1080,
+      height: 566
+    }
+  },
+  //twitter
   {
     id: 't1',
     nome: 'Twitter',
     postagem: 'capa',
     resolucao: {
-      width: 1500,
-      height: 500
+      width: 1536,
+      height: 768
     }
   },
   {
@@ -42,26 +61,36 @@ export const RESOLUCOES: RedeSocial[] = [
     nome: 'Twitter',
     postagem: 'perfil',
     resolucao: {
-      width: 400,
-      height: 400
+      width: 500,
+      height: 500
     }
   },
   {
     id: 't3',
     nome: 'Twitter',
-    postagem: 'feed',
+    postagem: 'feedPaisagem',
     resolucao: {
-      width: 335,
-      height: 600
+      width: 900,
+      height: 450
     }
   },
+  {
+    id: 't4',
+    nome: 'Twitter',
+    postagem: 'feedQuadrado',
+    resolucao: {
+      width: 1080,
+      height: 1080
+    }
+  },
+  //Facebook
   {
     id: 'f1',
     nome: 'Facebook',
     postagem: 'capa',
     resolucao: {
       width: 851,
-      height: 315
+      height: 312
     }
   },
   {
@@ -69,21 +98,39 @@ export const RESOLUCOES: RedeSocial[] = [
     nome: 'Facebook',
     postagem: 'perfil',
     resolucao: {
-      width: 180,
-      height: 180
+      width: 320,
+      height: 320
     }
   },
   {
     id: 'f3',
     nome: 'Facebook',
-    postagem: 'feed',
+    postagem: 'feedRetrato',
     resolucao: {
-      width: 1200,
-      height: 630
+      width: 1080,
+      height: 1350
     }
   },
   {
-    id: 'f3',
+    id: 'f4',
+    nome: 'Facebook',
+    postagem: 'feedQuadrado',
+    resolucao: {
+      width: 1080,
+      height: 1080
+    }
+  },
+  {
+    id: 'f5',
+    nome: 'Facebook',
+    postagem: 'feedPaisagem',
+    resolucao: {
+      width: 1080,
+      height: 566
+    }
+  },
+  {
+    id: 'f6',
     nome: 'Facebook',
     postagem: 'stories',
     resolucao: {
