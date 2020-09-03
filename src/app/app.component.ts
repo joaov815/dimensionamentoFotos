@@ -9,17 +9,17 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  inputFile: any;
-  srcImg: any;
-  imgHeight: number = 300;
-  imgWidth: number = 300;
+  imgEvent: any;
+  imgHeight: number = 1;
+  imgWidth: number = 1;
   loadingImg: boolean = false;
   resolucoes: RedeSocial[] = RESOLUCOES;
   btnsEscolhaRedeSocial: boolean = false;
   form: FormGroup;
   storiesBtn:boolean = false;
   redeSocialSelecionda: string = '';
-
+  croppedImage: any;
+  fotoConfirmada: boolean = false;
 
   constructor(private fb: FormBuilder){}
 
@@ -27,22 +27,14 @@ export class AppComponent implements OnInit{
     this.form = this.fb.group({foto: null});
   }
 
-  resetForm(){
-    this.form.reset();
+  imageCropped(e){
+    this.croppedImage = e.base64;
   }
 
   onChange(event: any){
-    console.log(event)
-    const selectedPhoto = <FileList>event.srcElement.files;
-    if(selectedPhoto[0]){
-      this.loadingImg = true;
-      const reader = new FileReader();
-      reader.addEventListener("load", (e) => {
-        this.srcImg = e.target.result;
-        this.loadingImg = false;
-      });
-      reader.readAsDataURL(selectedPhoto[0]);
-    }
+    this.loadingImg = true;
+    this.imgEvent = event;
+    this.loadingImg = false;
   }
 
   escolherRedeSocial(redeSocial: string){
@@ -55,8 +47,8 @@ export class AppComponent implements OnInit{
   escolherTipo(tipo: string){
     this.resolucoes = RESOLUCOES;
     this.resolucoes = this.resolucoes.filter(r => r.postagem === tipo);
-    this.imgHeight = this.resolucoes[0].resolucao.height;
-    this.imgWidth = this.resolucoes[0].resolucao.width;
+    this.imgHeight = this.resolucoes[0].resolucao.heightRatio;
+    this.imgWidth = this.resolucoes[0].resolucao.widthRatio;
   }
 
   voltarOpcoes(){
@@ -64,13 +56,21 @@ export class AppComponent implements OnInit{
     this.btnsEscolhaRedeSocial = false;
   }
 
-  voltar(){
+  voltarInicio(){
     this.btnsEscolhaRedeSocial = false;
-    this.srcImg = null;
+    this.redeSocialSelecionda = '';
     this.loadingImg = false;
+    this.imgEvent = null;
     this.resolucoes = RESOLUCOES;
-    this.imgHeight = 300;
-    this.imgWidth = 300;
-    this.resetForm();
+    this.imgHeight = 1;
+    this.imgWidth = 1;
+    this.form.reset();
+    this.fotoConfirmada = false;
+  }
+
+  postar(){
+    this.fotoConfirmada = true;
+    // abrir rede social pra postar
+
   }
 }

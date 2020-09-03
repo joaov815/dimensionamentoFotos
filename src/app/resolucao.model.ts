@@ -1,6 +1,8 @@
 class Resolucao{
   width: number;
   height: number;
+  widthRatio: number;
+  heightRatio: number;
 }
 
 export class RedeSocial{

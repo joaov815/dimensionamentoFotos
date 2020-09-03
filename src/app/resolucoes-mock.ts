@@ -7,7 +7,9 @@ export const RESOLUCOES: RedeSocial[] = [
     postagem: 'perfil',
     resolucao: {
       width: 180,
-      height: 180
+      height: 180,
+      widthRatio: 1,
+      heightRatio: 1
     }
   },
   {
@@ -16,7 +18,9 @@ export const RESOLUCOES: RedeSocial[] = [
     postagem: 'stories',
     resolucao: {
       width: 1080,
-      height: 1920
+      height: 1920,
+      widthRatio: 9,
+      heightRatio: 16
     }
   },
   {
@@ -25,7 +29,9 @@ export const RESOLUCOES: RedeSocial[] = [
     postagem: 'feedRetrato',
     resolucao: {
       width: 1080,
-      height: 1350
+      height: 1350,
+      widthRatio: 4,
+      heightRatio: 5
     }
   },
   {
@@ -34,7 +40,9 @@ export const RESOLUCOES: RedeSocial[] = [
     postagem: 'feedQuadrado',
     resolucao: {
       width: 1080,
-      height: 1080
+      height: 1080,
+      widthRatio: 1,
+      heightRatio: 1
     }
   },
   {
@@ -42,8 +50,10 @@ export const RESOLUCOES: RedeSocial[] = [
     nome: 'Instagram',
     postagem: 'feedPaisagem',
     resolucao: {
-      width: 1080,
-      height: 566
+      width: 1350,
+      height: 1080,
+      widthRatio: 5,
+      heightRatio: 4
     }
   },
   //twitter
@@ -53,7 +63,9 @@ export const RESOLUCOES: RedeSocial[] = [
     postagem: 'capa',
     resolucao: {
       width: 1536,
-      height: 768
+      height: 768,
+      widthRatio: 2,
+      heightRatio: 1
     }
   },
   {
@@ -62,7 +74,10 @@ export const RESOLUCOES: RedeSocial[] = [
     postagem: 'perfil',
     resolucao: {
       width: 500,
-      height: 500
+      height: 500,
+      widthRatio: 1,
+      heightRatio: 1
+
     }
   },
   {
@@ -71,7 +86,9 @@ export const RESOLUCOES: RedeSocial[] = [
     postagem: 'feedPaisagem',
     resolucao: {
       width: 900,
-      height: 450
+      height: 450,
+      widthRatio: 2,
+      heightRatio: 1
     }
   },
   {
@@ -80,7 +97,9 @@ export const RESOLUCOES: RedeSocial[] = [
     postagem: 'feedQuadrado',
     resolucao: {
       width: 1080,
-      height: 1080
+      height: 1080,
+      widthRatio: 1,
+      heightRatio: 1
     }
   },
   //Facebook
@@ -89,8 +108,10 @@ export const RESOLUCOES: RedeSocial[] = [
     nome: 'Facebook',
     postagem: 'capa',
     resolucao: {
-      width: 851,
-      height: 312
+      width: 820,
+      height: 312,
+      widthRatio: 205,
+      heightRatio: 78
     }
   },
   {
@@ -99,7 +120,9 @@ export const RESOLUCOES: RedeSocial[] = [
     postagem: 'perfil',
     resolucao: {
       width: 320,
-      height: 320
+      height: 320,
+      widthRatio: 1,
+      heightRatio: 1
     }
   },
   {
@@ -108,7 +131,9 @@ export const RESOLUCOES: RedeSocial[] = [
     postagem: 'feedRetrato',
     resolucao: {
       width: 1080,
-      height: 1350
+      height: 1350,
+      widthRatio: 4,
+      heightRatio: 5
     }
   },
   {
@@ -117,7 +142,9 @@ export const RESOLUCOES: RedeSocial[] = [
     postagem: 'feedQuadrado',
     resolucao: {
       width: 1080,
-      height: 1080
+      height: 1080,
+      widthRatio: 1,
+      heightRatio: 1
     }
   },
   {
@@ -126,7 +153,9 @@ export const RESOLUCOES: RedeSocial[] = [
     postagem: 'feedPaisagem',
     resolucao: {
       width: 1080,
-      height: 566
+      height: 566,
+      widthRatio: 540,
+      heightRatio: 283
     }
   },
   {
@@ -135,7 +164,9 @@ export const RESOLUCOES: RedeSocial[] = [
     postagem: 'stories',
     resolucao: {
       width: 1080,
-      height: 1920
+      height: 1920,
+      widthRatio: 9,
+      heightRatio: 16
     }
   }
 ]

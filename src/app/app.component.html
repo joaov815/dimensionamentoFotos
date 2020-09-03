@@ -1,4 +1,7 @@
 <div class="pt-2">
+  <div class="center">
+    <h4>{{redeSocialSelecionda}}</h4>
+  </div>
   <form [formGroup]="form">
     <input type="file" class="custom-file-input" id="validatedCustomFile" accept="image/*" required
       (change)="onChange($event)" #inputImg hidden formControlName="foto" />
@@ -6,14 +9,25 @@
   <div *ngIf="loadingImg" class="center" style="margin: 10px auto; height: 300px; width: 300px">
     Carregando ...
   </div>
-  <div *ngIf="!loadingImg" style="margin: 10px auto" [style.width]="imgWidth + 'px'" [style.height]="imgHeight + 'px'">
-    <img *ngIf="srcImg" [src]="srcImg" style="border: 0.5px solid #eee; display: block" [style.width]="imgWidth + 'px'"
-      [style.height]="imgHeight + 'px'" />
-    <div *ngIf="!srcImg" class="preview-span center" (click)="inputImg.click()">
+
+  <div *ngIf="!loadingImg" style="margin: 10px auto;" class="center" >
+
+    <image-cropper
+    *ngIf="imgEvent && !fotoConfirmada"
+    [imageChangedEvent]="imgEvent"
+    [maintainAspectRatio]="true"
+    [aspectRatio]="imgWidth / imgHeight"
+    format="png"
+    (imageCropped)="imageCropped($event)"
+    ></image-cropper>
+
+    <img *ngIf="fotoConfirmada" [src]="croppedImage" style="display: block"  />
+
+    <div *ngIf="!imgEvent" class="preview-span center" (click)="inputImg.click()">
       Selecione a imagem
     </div>
   </div>
-  <div class="center" *ngIf="srcImg">
+  <div class="center" *ngIf="imgEvent && !fotoConfirmada">
     <div class="center" *ngIf="!btnsEscolhaRedeSocial">
       <button type="button" class="btn btn-primary mr-1" (click)="escolherRedeSocial('Facebook')">
         Facebook
@@ -24,7 +38,7 @@
       <button type="button" class="btn btn-primary mr-1" (click)="escolherRedeSocial('Twitter')">
         Twitter
       </button>
-      <button type="button" class="btn btn-primary mr-1" (click)="voltar()">
+      <button type="button" class="btn btn-primary mr-1" (click)="voltarInicio()">
         Voltar
       </button>
     </div>
@@ -59,6 +73,17 @@
       <button type="button" class="btn btn-primary mr-1" (click)="voltarOpcoes()">
         Voltar
       </button>
+      <button type="button" class="btn btn-success mr-1" (click)="postar()">
+        Postar
+      </button>
     </div>
+  </div>
+  <div class="center" *ngIf="fotoConfirmada">
+    <button type="button" class="btn btn-primary mr-1" (click)="fotoConfirmada = false">
+      Voltar
+    </button>
+    <button  type="button" class="btn btn-primary mr-1" (click)="voltarInicio()">
+      Escolher nova foto
+    </button>
   </div>
 </div>
